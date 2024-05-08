@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import style from "./Item.module.scss";
 import { Task } from "../../../types/task";
 
@@ -7,7 +6,7 @@ interface ItemProps extends Task {
   isSelected: boolean;
 }
 
-const Item: FunctionComponent<ItemProps> = ({
+const Item = ({
   title,
   timeToComplete,
   completed,
@@ -15,7 +14,7 @@ const Item: FunctionComponent<ItemProps> = ({
   id,
   selectTask,
   isSelected,
-}) => {
+}: ItemProps) => {
   return (
     <li
       className={`${style.item} ${isSelected && style.itemSelecionado}`}
