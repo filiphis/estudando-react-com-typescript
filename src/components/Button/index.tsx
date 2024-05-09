@@ -1,27 +1,16 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import ButtonStyle from "./Button.module.scss";
 
-// interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-
-// }
-
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode;
+  children: React.ReactNode;
 };
 
-interface ButtonState {
-  onClick?: () => void;
-}
-
-class Button extends React.Component<ButtonProps, ButtonState> {
-  render() {
-    const { onClick } = this.props;
-    return (
-      <button onClick={onClick} className={ButtonStyle.button}>
-        {this.props.children}
-      </button>
-    );
-  }
-}
+const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
+  return (
+    <button {...props} className={ButtonStyle.button}>
+      {children}
+    </button>
+  );
+};
 
 export default Button;
