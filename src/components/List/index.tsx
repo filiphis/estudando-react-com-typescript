@@ -6,9 +6,15 @@ interface ListProps {
   tasks: Task[];
   selectTask: (task: Task) => void;
   selectedTask: Task | null;
+  cutdownIsRunning: boolean;
 }
 
-const List = ({ tasks, selectTask, selectedTask }: ListProps) => {
+const List = ({
+  tasks,
+  selectTask,
+  selectedTask,
+  cutdownIsRunning,
+}: ListProps) => {
   return (
     <aside className={ListStyles.listaTarefas}>
       <h2>Estudos do dia</h2>
@@ -19,6 +25,7 @@ const List = ({ tasks, selectTask, selectedTask }: ListProps) => {
             {...taskItem}
             selectTask={selectTask}
             isSelected={taskItem.id === selectedTask?.id}
+            cutdownIsRunning={cutdownIsRunning}
           />
         ))}
       </ul>
